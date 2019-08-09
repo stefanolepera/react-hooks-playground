@@ -1,3 +1,3 @@
-## React Hooks Playground - EX1_useState_basic
+## React Hooks Playground - EX1_useState_basic_solution
 
-To solve the first exercise, simply update the `Main.jsx` component using the `useState` hook.
+In order to update the `Main.jsx` component, we have to change it first to a functional component and then we can use the `useState` hook.
