@@ -1,23 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react';
+import { MainWrapper, Button } from './Main.style';
 
-const MainWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-item: center;
-    justify-content: center;
-`;
+class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            toggle: false
+        };
+    }
 
-const Main = () => {
-    return (
-        <MainWrapper>
-            <h2>React Hooks Playground</h2>
-            <p>
-                Please checkout the first branch <b>EX1_useState_basic</b> and
-                solve the problem
-            </p>
-        </MainWrapper>
-    );
-};
+    switchToggle = () => {
+        this.setState({
+            toggle: !this.state.toggle
+        });
+    };
+
+    render() {
+        return (
+            <MainWrapper>
+                <h2>EX1_useState_basic</h2>
+                <p>{`the light is ${this.state.toggle ? 'ON' : 'OFF'}`}</p>
+                <Button onClick={this.switchToggle}>TOGGLE</Button>
+            </MainWrapper>
+        );
+    }
+}
 
 export default Main;
