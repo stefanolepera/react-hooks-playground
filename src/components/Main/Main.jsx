@@ -1,20 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const MainWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-item: center;
-    justify-content: center;
-`;
+import { MainWrapper, Link } from './Main.style';
 
 const Main = () => {
     return (
         <MainWrapper>
             <h2>React Hooks Playground</h2>
             <p>
-                Please checkout the first branch <b>EX1_useState_basic</b> and
-                solve the problem
+                Please checkout the first branch{' '}
+                <Link
+                    href="https://github.com/stefanolepera/react-hooks-playground/tree/EX1_useState_basic"
+                    target="_blank"
+                >
+                    <b>EX1_useState_basic</b>
+                </Link>{' '}
+                and solve the problem
             </p>
         </MainWrapper>
     );
