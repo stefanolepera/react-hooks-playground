@@ -7,6 +7,12 @@ Every exercise will have a `_solution` branch that you can check if you feel stu
 Bear in mind that there are many ways to achieve the same result, so if your solution doesn't look exactly like the one provided it doesn't matter! (as long as the problem was correctly solved 😎).<br>
 A basic styling is provided using `styled-components`, however styling is out of the scope of this project so feel free to use different form of styling.
 
+## Fork and clone
+
+In order to complete the exercises, please fork this repository and then clone the fork locally.<br>
+A guide on how to fork repos can be found here [Forking Projects](https://guides.github.com/activities/forking/)
+** Note: please do not open any pull request when you are done solving the given exercises **
+
 ## Initialize
 
 To initialise the project please run the following commands:
