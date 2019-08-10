@@ -23,3 +23,11 @@ export const Button = styled.button`
         background-color: grey;
     }
 `;
+
+export const List = styled.ul`
+    text-align: left;
+`;
+
+export const ListItem = styled.li`
+    font-style: italic;
+`;
