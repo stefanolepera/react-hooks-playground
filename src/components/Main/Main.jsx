@@ -1,32 +1,50 @@
 import React, { useState } from 'react';
-import { MainWrapper, Button, List, ListItem } from './Main.style';
+import {
+    MainWrapper,
+    Button,
+    ButtonsWrapper,
+    List,
+    ListItem
+} from './Main.style';
 
 const Main = () => {
-    const [credentials, setCredentials] = useState({
-        firstName: 'Joe',
-        lastName: 'Smith',
-        age: 38
-    });
+    const [count, setCount] = useState(0);
+    const [items, setItems] = useState([Math.round(Math.random() * 100)]);
 
-    const changeName = () => {
-        setCredentials(prevState => ({
-            ...prevState,
-            firstName: 'Steve'
-        }));
+    const increaseCount = () => {
+        //TODO it should increment the count after 1 second
+    };
+
+    const decreaseCount = () => {
+        //TODO it should decrement the count after 1 second
+    };
+
+    const addItem = () => {
+        //TODO it should add a new random number to the items
+    };
+
+    const removeItem = () => {
+        //TODO it should remove the last item
     };
 
     return (
         <MainWrapper>
-            <h2>EX2_useState_intermediate_solution</h2>
-            <p>my credentials are:</p>
+            <h2>EX3_useState_advanced</h2>
+            <p>{`the current count is ${count}`}</p>
+            <ButtonsWrapper>
+                <Button onClick={increaseCount}>INCREASE</Button>
+                <Button onClick={decreaseCount}>DECREASE</Button>
+            </ButtonsWrapper>
+            <p>add and remove items from the list</p>
+            <ButtonsWrapper>
+                <Button onClick={addItem}>ADD</Button>
+                <Button onClick={removeItem}>REMOVE</Button>
+            </ButtonsWrapper>
             <List>
-                {Object.keys(credentials).map(credential => (
-                    <ListItem>
-                        {`${credential}: ${credentials[credential]}`}
-                    </ListItem>
+                {items.map((item, index) => (
+                    <ListItem key={index}>{`item value: ${item}`}</ListItem>
                 ))}
             </List>
-            <Button onClick={changeName}>CHANGE NAME</Button>
         </MainWrapper>
     );
 };

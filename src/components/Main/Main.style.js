@@ -9,6 +9,7 @@ export const MainWrapper = styled.div`
 
 export const Button = styled.button`
     border: 1px;
+    margin: 5px;
     line-height: 2.5;
     padding: 0 20px;
     font-size: 1rem;
@@ -22,6 +23,13 @@ export const Button = styled.button`
     :hover {
         background-color: grey;
     }
+`;
+
+export const ButtonsWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const List = styled.ul`
