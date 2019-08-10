@@ -29,12 +29,12 @@ You will also see any lint errors in the console.
 
 ## List of all the exercises
 
-[EX1_useState_basic](https://github.com/stefanolepera/react-hooks-playground/tree/EX1_useState_basic)
-[EX2_useState_intermediate](https://github.com/stefanolepera/react-hooks-playground/tree/EX2_useState_intermediate)
-[EX3_useState_advanced](https://github.com/stefanolepera/react-hooks-playground/tree/EX3_useState_advanced)
+[EX1_useState_basic](https://github.com/stefanolepera/react-hooks-playground/tree/EX1_useState_basic)<br>
+[EX2_useState_intermediate](https://github.com/stefanolepera/react-hooks-playground/tree/EX2_useState_intermediate)<br>
+[EX3_useState_advanced](https://github.com/stefanolepera/react-hooks-playground/tree/EX3_useState_advanced)<br>
 
 ## List of all the solutions
 
-[EX1_useState_basic_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX1_useState_basic_solution)
-[EX2_useState_intermediate_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX2_useState_intermediate_solution)
-[EX3_useState_advanced_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX3_useState_advanced_solution)
+[EX1_useState_basic_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX1_useState_basic_solution)<br>
+[EX2_useState_intermediate_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX2_useState_intermediate_solution)<br>
+[EX3_useState_advanced_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX3_useState_advanced_solution)<br>
