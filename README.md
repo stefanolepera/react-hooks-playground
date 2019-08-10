@@ -27,10 +27,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-## List of exercises
+## List of all the exercises
 
 [EX1_useState_basic](https://github.com/stefanolepera/react-hooks-playground/tree/EX1_useState_basic)
+[EX2_useState_intermediate](https://github.com/stefanolepera/react-hooks-playground/tree/EX2_useState_intermediate)
+[EX3_useState_advanced](https://github.com/stefanolepera/react-hooks-playground/tree/EX3_useState_advanced)
 
-## List of solutions
+## List of all the solutions
 
 [EX1_useState_basic_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX1_useState_basic_solution)
+[EX2_useState_intermediate_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX2_useState_intermediate_solution)
+[EX3_useState_advanced_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX3_useState_advanced_solution)
