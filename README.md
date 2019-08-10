@@ -1,5 +1,17 @@
-## React Hooks Playground - EX2_useState_intermediate
+## React Hooks Playground - EX2_useState_intermediate_solution
 
-To solve the second exercise, simply update the `Main.jsx` component using the `useState` hook.<br>
-There is a small gotcha in this case, since we are dealing with an Object.<br>
-If you find yourself stuck or just want to double check your solution, please check out the [EX2_useState_intermediate_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX2_useState_intermediate_solution) branch.
+Unlike the `setState` method found in class components, the `useState` hook does not automatically merge updated objects.<br>
+If you only update the `fistName` key value you would lose the rest of the object key value pairs.<br>
+
+```javascript
+setCredentials({ firstName: 'Steve' });
+```
+
+In order to replicate this behavior we can combine the function updater with the object spread syntax: spreading the previous state and then just change the relevant key value pair<br>
+
+```javascript
+setCredentials(prevState => ({
+    ...prevState,
+    firstName: 'Steve'
+}));
+```
