@@ -12,24 +12,24 @@ const Main = () => {
     const [items, setItems] = useState([Math.round(Math.random() * 100)]);
 
     const increaseCount = () => {
-        //TODO it should increment the count after 1 second
+        setTimeout(() => setCount(prevState => prevState + 1), 1000);
     };
 
     const decreaseCount = () => {
-        //TODO it should decrement the count after 1 second
+        setTimeout(() => setCount(prevState => prevState - 1), 1000);
     };
 
     const addItem = () => {
-        //TODO it should add a new random number to the items
+        setItems(prevState => [...prevState, Math.round(Math.random() * 100)]);
     };
 
     const removeItem = () => {
-        //TODO it should remove the last item
+        setItems(prevState => [...prevState.slice(0, items.length - 1)]);
     };
 
     return (
         <MainWrapper>
-            <h2>EX3_useState_advanced</h2>
+            <h2>EX3_useState_advanced_solution</h2>
             <p>{`the current count is ${count}`}</p>
             <ButtonsWrapper>
                 <Button onClick={increaseCount}>INCREASE</Button>
