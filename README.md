@@ -1,29 +1,12 @@
-## React Hooks Playground - EX5_useEffect_intermediate_solution
+## React Hooks Playground - EX6_useEffect_advanced
 
-In order to solve this exercise, we need to use multiple `useEffect`, which is always a good idea to separate concerns (Single Responsibility principle).<br>
-In the first `useEffect` we add the listener for the `resize` event, while the second just update the document title.<br>
-Couple of things to notice: we pass an empty array `[]` to the first `useEffect` so that runs only once, after the first render, but to the second one, we pass `[width]` so that hook will trigger every time the `width` value changes.<br>
-
-```javascript
-useEffect(() => {
-    // this runs only once, after the first render
-}, []);
-
-useEffect(() => {
-    // this runs every time the width value changes
-}, [width]);
-```
-
-Both hooks return a clean up function, which runs before the component is removed from the UI to prevent memory leaks. That does the same job as `componentWillUnmount`.<br>
-
-```javascript
-useEffect(() => {
-    // we remove the listener when the component is removed from the UI
-    return () => window.removeEventListener('resize', handleResize);
-}, []);
-
-useEffect(() => {
-    // we reset the document title when the component is removed from the UI
-    return () => (document.title = '');
-}, [width]);
-```
+To solve this exercise, implement the code for the `Main.jsx` component using tow `useEffect` hooks and add the following features:<br>
+Use the provided `fetchData` method in `src/services/APIService.js` to fetch users from the jsonplaceholder website: bear in mind that `fetchData` returns a promise.<br>
+The `fetchData` method accept one parameter, which is the number of the user to fetch data from.<br>
+Display the user data, filtering out the `address` and `company` attributes.<br>
+Display the `Spinner` component if the data is currently loading: the use of throttling in the DevTools might help to simulate a slower connection.<br>
+Clicking the button should increase the `userId` by one and fetch the corrisponding user data: the API has a limit of 10 user, after that it will respond with an error,
+when that happen we need to handle the error and reset the `userId` to 1.<br>
+Additionaly we want to check, for every data change, if the website of the user ends in `.com` and display `true` or `false` in the `div` containing <i>has .com website:</i><br>
+**Note: all the imports and a skeleton of the component is provided, feel free to change / rename some things if you feel to.**<br>
+If you find yourself stuck or just want to double check your solution, please check out the [EX6_useEffect_advanced_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX6_useEffect_advanced_solution) branch.

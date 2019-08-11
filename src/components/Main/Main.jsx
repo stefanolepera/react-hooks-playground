@@ -1,25 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { MainWrapper } from './Main.style';
+import {
+    MainWrapper,
+    Button,
+    WebsiteWrapper,
+    UserWrapper,
+    UserAttribute
+} from './Main.style';
+import { Spinner } from '../';
+import fetchData from '../../services/APIService';
 
 const Main = () => {
-    const [width, setWidth] = useState(window.innerWidth);
+    const [data, setData] = useState({});
+    const [userId, setUserId] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isDotCom, setIsDotCom] = useState(false);
 
     useEffect(() => {
-        const handleResize = () => setWidth(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        // TODO add here the fetchData, handling the loading and the error.
+        // If the API returns an error we have to reset the userId to 1
+    });
 
     useEffect(() => {
-        const title = width < 300 ? "It's too small!" : "It's ok";
-        document.title = title;
-        return () => (document.title = '');
-    }, [width]);
+        // TODO add here the check if the user has a .com website and
+        // update the isDotCom state
+    });
+
+    const setNewUserId = () => {
+        // TODO inscrease the userId by 1
+    };
 
     return (
         <MainWrapper>
-            <h2>EX5_useEffect_intermediate_solution</h2>
-            <p>{`the width is: ${width}`}</p>
+            <h2>EX6_useEffect_advanced</h2>
+            <Button onClick={setNewUserId}>GET THE NEXT USER</Button>
+            <WebsiteWrapper>{`has .com website:`}</WebsiteWrapper>
+            {/* if the data is loading display the Spinner component, otherwise display the user data filtering out address and company */}
         </MainWrapper>
     );
 };
