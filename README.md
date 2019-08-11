@@ -1,12 +1,65 @@
-## React Hooks Playground - EX6_useEffect_advanced
+## React Hooks Playground - EX6_useEffect_advanced_solution
 
-To solve this exercise, implement the code for the `Main.jsx` component using tow `useEffect` hooks and add the following features:<br>
-Use the provided `fetchData` method in `src/services/APIService.js` to fetch users from the jsonplaceholder website: bear in mind that `fetchData` returns a promise.<br>
-The `fetchData` method accept one parameter, which is the number of the user to fetch data from.<br>
-Display the user data, filtering out the `address` and `company` attributes.<br>
-Display the `Spinner` component if the data is currently loading: the use of throttling in the DevTools might help to simulate a slower connection.<br>
-Clicking the button should increase the `userId` by one and fetch the corrisponding user data: the API has a limit of 10 user, after that it will respond with an error,
-when that happen we need to handle the error and reset the `userId` to 1.<br>
-Additionaly we want to check, for every data change, if the website of the user ends in `.com` and display `true` or `false` in the `div` containing <i>has .com website:</i><br>
-**Note: all the imports and a skeleton of the component is provided, feel free to change / rename some things if you feel to.**<br>
-If you find yourself stuck or just want to double check your solution, please check out the [EX6_useEffect_advanced_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX6_useEffect_advanced_solution) branch.
+In order solve this exercise, we need to implement the code for the first `useEffect` hook, fetching the data and handling the returned promise:<br>
+
+```javascript
+useEffect(() => {
+    setIsLoading(true);
+    fetchData(userId)
+        .then(response => {
+            setData(response.data);
+            setIsLoading(false);
+        })
+        .catch(() => setUserId(1));
+}, [userId]);
+```
+
+We set the `isLoading` state to true, so we can display the Spinner, then if the promise resolves we set the `data` with the response and `isLoading` to false, if we get and error we reset the `userId` to 1. This hook triggers every time `userId` changes.<br>
+In the second `useEffet` hook we implement the code to check if the user website is `.com` and set `isDotCom` state accordingly. This hook triggers every time `data` changes.<br>
+
+```javascript
+useEffect(() => {
+    if (Object.values(data).length > 0) {
+        const dotCom = Object.values(data).filter(
+            value => value.indexOf && value.indexOf('.com') !== -1
+        );
+        setIsDotCom(dotCom.length > 0);
+    }
+}, [data]);
+```
+
+In the `setNewUserId` function we simply increment by 1 `userId`.<br>
+
+```javascript
+const setNewUserId = () => {
+    setUserId(prevState => setUserId(prevState + 1));
+};
+```
+
+Lastly, the render method we add the logic to display the `Spinner` if the data is stil loading, otherwise we display the user data filtering out `address` and `company`.<br>
+
+```javascript
+return (
+    <MainWrapper>
+        <h2>EX6_useEffect_advanced_solution</h2>
+        <Button onClick={setNewUserId}>GET THE NEXT USER</Button>
+        <WebsiteWrapper>{`has .com website: ${isDotCom}`}</WebsiteWrapper>
+        {isLoading ? (
+            <Spinner />
+        ) : (
+            <UserWrapper>
+                {Object.keys(data)
+                    .filter(
+                        element =>
+                            element !== 'address' && element !== 'company'
+                    )
+                    .map(element => (
+                        <UserAttribute key={element}>
+                            {`${element}: ${data[element]}`}
+                        </UserAttribute>
+                    ))}
+            </UserWrapper>
+        )}
+    </MainWrapper>
+);
+```
