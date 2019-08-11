@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { MainWrapper } from './Main.style';
+import fetchData from '../../services/APIService';
 
 const Main = () => {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-            .then(response => response.json())
-            .then(json => setData({ data: json }));
+        fetchData().then(response => setData({ data: response.data }));
     }, []);
 
     return (
