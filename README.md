@@ -1,4 +1,11 @@
-## React Hooks Playground - EX4_useEffect_basic
+## React Hooks Playground - EX4_useEffect_basic_solution
 
-To solve this exercise, simply update the `Main.jsx` component using the `useEffect` to fetch the JSON data.
-If you find yourself stuck or just want to double check your solution, please check out the [EX4_useEffect_basic_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX4_useEffect_basic_solution) branch.
+The `useEffect` hook triggers after every completed render.<br>
+Normally you would pass, as second parameter, an array of values that act as a reference for the hook: it will fire only when those values have changed.<br>
+In this case we want the hook to fire only once, after the first render, so passing an empty array tells React that your effect doesn’t depend on any values from props or state, so it never needs to re-run.<br>
+
+```javascript
+useEffect(() => {
+    // some side effect here
+}, []);
+```

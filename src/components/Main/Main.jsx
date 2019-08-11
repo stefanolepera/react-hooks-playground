@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MainWrapper } from './Main.style';
 
-class Main extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: {}
-        };
-    }
+const Main = () => {
+    const [data, setData] = useState({});
 
-    componentDidMount() {
+    useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/todos/1')
             .then(response => response.json())
-            .then(json => this.setState({ data: json }));
-    }
+            .then(json => setData({ data: json }));
+    }, []);
 
-    render() {
-        return (
-            <MainWrapper>
-                <h2>EX4_useEffect_basic</h2>
-                <p>{`the data is: ${JSON.stringify(this.state.data)}`}</p>
-            </MainWrapper>
-        );
-    }
-}
+    return (
+        <MainWrapper>
+            <h2>EX4_useEffect_basic_solution</h2>
+            <p>{`the data is: ${JSON.stringify(data)}`}</p>
+        </MainWrapper>
+    );
+};
 
 export default Main;
