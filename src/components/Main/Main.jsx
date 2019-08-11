@@ -1,25 +1,42 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { MainWrapper } from './Main.style';
 
-class Main extends Component {
+class Main extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            data: {}
+            width: window.innerWidth,
+            isTooSmall: false
         };
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-            .then(response => response.json())
-            .then(json => this.setState({ data: json }));
+        window.addEventListener('resize', this.handleResize);
     }
 
+    componentDidUpdate(_, prevState) {
+        if (prevState.width !== this.state.width) {
+            if (this.state.width < 300) {
+                this.setState({ warning: true });
+            } else {
+                this.setState({ warning: false });
+            }
+        }
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
+    handleResize = () => this.setState({ width: window.innerWidth });
+
     render() {
+        console.log('render!');
         return (
             <MainWrapper>
-                <h2>EX4_useEffect_basic</h2>
-                <p>{`the data is: ${JSON.stringify(this.state.data)}`}</p>
+                <h2>EX5_useEffect_intermediate</h2>
+                <p>{`the width is: ${this.state.width}`}</p>
+                {this.state.warning && <p>It's too small!</p>}
             </MainWrapper>
         );
     }

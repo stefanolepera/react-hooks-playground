@@ -1,4 +1,7 @@
-## React Hooks Playground - EX4_useEffect_basic
+## React Hooks Playground - EX5_useEffect_intermediate
 
-To solve this exercise, simply update the `Main.jsx` component using the `useEffect` to fetch the JSON data.
-If you find yourself stuck or just want to double check your solution, please check out the [EX4_useEffect_basic_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX4_useEffect_basic_solution) branch.
+To solve this exercise, simply update the `Main.jsx` component using the `useEffect` to listen to the window resize.
+
+**Note: we use `PureComponent` here to optimize performance and avoid unnecessary re-renders**
+
+If you find yourself stuck or just want to double check your solution, please check out the [EX5_useEffect_intermediate_solution](https://github.com/stefanolepera/react-hooks-playground/tree/EX5_useEffect_intermediate_solution) branch.
