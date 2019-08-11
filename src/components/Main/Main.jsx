@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MainWrapper } from './Main.style';
+import fetchData from '../../services/APIService';
 
 class Main extends Component {
     constructor(props) {
@@ -10,9 +11,7 @@ class Main extends Component {
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/todos/1')
-            .then(response => response.json())
-            .then(json => this.setState({ data: json }));
+        fetchData().then(response => this.setState({ data: response.data }));
     }
 
     render() {
